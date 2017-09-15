@@ -7,15 +7,17 @@ using namespace std;
 
 class LinkedList {
 	struct Node {
-		Luchador l;
-		Node* next;
+		Luchador* luchador;
+		Node* nodo;
 	};
 	private:
-		Node* head;
+		Node* raiz;
 	public:
 		LinkedList();
-		void Agregar(Luchador);
-		string Ver();
+		void insert(Luchador*);
+		int getSize();
+		Luchador* get(int, int);
+		//string Ver();
 };
 
 #endif
