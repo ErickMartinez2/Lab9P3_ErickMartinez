@@ -17,6 +17,7 @@ class LinkedList {
 		void insert(Luchador*);
 		int getSize();
 		Luchador* get(int, int);
+		void Delete();
 		//string Ver();
 };
 

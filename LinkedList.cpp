@@ -49,6 +49,14 @@ Luchador* LinkedList::get(int posicion, int size) {
 	return luchador_posicion;
 }
 
+void LinkedList::Delete() {
+	do {
+		Node* n = raiz;
+		Luchador* luchador = n -> luchador;
+		delete luchador;
+		raiz = raiz -> nodo;
+	} while (raiz != NULL);
+}
 
 /*string LinkedList::Ver() {
   Node* n = raiz;

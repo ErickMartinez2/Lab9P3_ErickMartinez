@@ -77,8 +77,9 @@ int main() {
 				   }break;
 			case 2:{
 						cout << "-> Lista de Luchadores " << endl;
-						for (int i = 1; i <= luchadores.getSize(); i++) {
-							cout << i << ". " << luchadores.get(i, luchadores.getSize()) -> getNombre() << endl;
+						int size = luchadores.getSize();
+						for (int i = 1; i <= size; i++) {
+							cout << i << ". " << luchadores.get(i, size) -> getNombre() << endl;
 						}
 				   }break;
 			case 3:{
@@ -89,8 +90,6 @@ int main() {
 				   }break;
 		}
 	} while (opcion != 4);
-	for (int i = 1; i <= luchadores.getSize(); i++) {
-		delete luchadores.get(i, luchadores.getSize());
-	}
+	luchadores.Delete();
 	return 0;
 }
