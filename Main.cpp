@@ -1,11 +1,12 @@
 #include <iostream>
 #include "LinkedList.h"
 #include "Luchador.h"
+#include "Aprendiz.h"
 using namespace std;
 
 int main() {
 	LinkedList list;
-	Luchador lu("Comer", 2);
+	Luchador lu;
 	list.Agregar(lu);
 	/*list.Agregar(10);
 	list.Agregar(15);

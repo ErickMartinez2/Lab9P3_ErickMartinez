@@ -4,10 +4,10 @@ Luchador::Luchador() {
 
 }
 
-Luchador::Luchador(string pnombre, int pbatallas, int pexperiencia) {
+Luchador::Luchador(string pnombre) {
 	nombre = pnombre;
-	batallas_ganadas = pbatallas;
-	experiencia = pexperiencia;
+	batallas_ganadas = 0;
+	experiencia = 0;
 }
 
 string Luchador::getNombre() {
@@ -30,8 +30,48 @@ int Luchador::getExperiencia() {
 	return experiencia;
 }
 
-void Luchador::setBatallas(int pbatallas) {
-	batallas_ganadas = pbatallas;
+void Luchador::setExperiencia(int pexperiencia) {
+	experiencia = pexperiencia;
+}
+
+int Luchador::getSalud() {
+	return salud;
+}
+
+void Luchador::setSalud(int psalud) {
+	salud = psalud;
+}
+
+/*int Luchador::getAtaqueMagico() {
+	return ataque_magico;
+}
+
+void Luchador::setAtaqueMagico(int pataque_magico) {
+	ataque_magico = pataque_magico;
+}
+
+int Luchador::getAtaqueFisico() {
+	return ataque_fisico;
+}
+
+void Luchador::setAtaqueFisico(int pataque_fisico) {
+	ataque_fisico = pataque_fisico;
+}*/
+
+int Luchador::getDefensaMagica() {
+	return defensa_magica;
+}
+
+void Luchador::setDefensaMagica(int pdefensa_magica) {
+	defensa_magica = pdefensa_magica;
+}
+
+int Luchador::getDefensaFisica() {
+	return defensa_fisica;
+}
+
+void Luchador::setDefensaFisica(int pdefensa_fisica) {
+	defensa_fisica = pdefensa_fisica;
 }
 
 vector<string> Luchador::getClases() {
@@ -41,3 +81,20 @@ vector<string> Luchador::getClases() {
 void Luchador::setClases(vector<string> pclases) {
 	clases_aprendidas = pclases;
 }
+
+int Luchador::getExperienciaNecesaria() {
+	return experiencia_necesaria;
+}
+
+void Luchador::setExperienciaNecesaria(int pexperiencia_necesaria) {
+	experiencia_necesaria = pexperiencia_necesaria;
+}
+
+int Luchador::getExperienciaEntregada() {
+	return experiencia_entregada;
+}
+
+void Luchador::setExperienciaEntregada(int pexperiencia_entregada) {
+	experiencia_entregada = pexperiencia_entregada;
+}
+
