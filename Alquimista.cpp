@@ -30,3 +30,7 @@ int Alquimista::AtaqueFisico() {
 	return 10;
 }
 
+void Alquimista::Habilidad() {
+	
+}
+

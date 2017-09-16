@@ -14,6 +14,7 @@ class Aprendiz: public Luchador {
 		virtual int AtaqueMagico();
 		virtual int AtaqueFisico();
 		virtual void HabilidadPasiva();
+		virtual void Habilidad();
 };
 
 #endif

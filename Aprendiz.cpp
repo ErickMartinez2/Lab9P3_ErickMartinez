@@ -31,6 +31,10 @@ int Aprendiz::AtaqueFisico() {
 }
 
 void Aprendiz::HabilidadPasiva() {
-	salud = experiencia_entregada * 2;
+	experiencia += experiencia_entregada * 2;
+}
+
+void Aprendiz::Habilidad() {
+	
 }
 

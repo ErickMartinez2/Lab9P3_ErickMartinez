@@ -30,3 +30,7 @@ int Mago::AtaqueFisico() {
 	return 0;
 }
 
+void Mago::Habilidad() {
+		
+}
+

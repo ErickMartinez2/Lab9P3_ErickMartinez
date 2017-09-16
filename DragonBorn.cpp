@@ -30,3 +30,7 @@ int DragonBorn::AtaqueFisico() {
 	return 23;
 }
 
+void DragonBorn::Habilidad() {
+	
+}
+

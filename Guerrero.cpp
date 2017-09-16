@@ -30,3 +30,7 @@ int Guerrero::AtaqueFisico() {
 	return 15;
 }
 
+void Guerrero::Habilidad() {
+	salud += 40;
+}
+

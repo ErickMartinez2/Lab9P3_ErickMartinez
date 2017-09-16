@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <typeinfo>
 #include "LinkedList.h"
@@ -128,6 +129,7 @@ int main() {
 			case 4:{
 					   cout << "-> Simulacion" << endl;
 					   int size = luchadores.getSize();
+					   ofstream archivo("Luchadores.txt", ios::app);
 					   for (int i = 1; i <= size; i++) {
 						   if (typeid(*luchadores.get(i, size)) == typeid(Aprendiz)) {
 							   cout << i << ". (Aprendiz) " << luchadores.get(i, size) -> getNombre() << endl;
@@ -159,6 +161,7 @@ int main() {
 					   int turno = 1;
 					   cout << endl;
 					   cout << "*** La Simulacion Skyrim Ha Comenzado ***" << endl;
+					   archivo << "-> Simulacion Skyrim \n";
 					   do {
 						   cout << endl;
 						   if (turno == 1) {
@@ -201,6 +204,7 @@ int main() {
 													  luchadores.get(num_luchador2, size) -> setSalud(luchadores.get(num_luchador2, size) -> getSalud() - luchadores.get(num_luchador, size) -> AtaqueMagico());
 												  }
 												  cout << "Ataque Magico Realizado!" << endl;
+												  archivo << "- " << luchadores.get(num_luchador, size) -> getNombre()  << " (Ataque Magico) " << luchadores.get(num_luchador2, size) -> getNombre() << "\n";
 												  turno++;
 											  } else {
 												  cout << "No tienes Ataque Magico!" << endl;
@@ -215,6 +219,7 @@ int main() {
 													  luchadores.get(num_luchador2, size) -> setSalud(luchadores.get(num_luchador2, size) -> getSalud() - luchadores.get(num_luchador, size) -> AtaqueFisico());
 												  }
 												  cout << "Ataque Fisico Realizado!" << endl;
+												  archivo << "- " << luchadores.get(num_luchador, size) -> getNombre()  << " (Ataque Fisco) " << luchadores.get(num_luchador2, size) -> getNombre() << "\n";
 												  turno++;
 											  } else {
 												  cout << "No tienes Fisico Magico!" << endl;
@@ -223,10 +228,14 @@ int main() {
 								   case 3:{
 											  luchadores.get(num_luchador, size) -> Defensa();
 											  cout << "Defensa Activada!" << endl;
+											  archivo << "- " << luchadores.get(num_luchador, size) -> getNombre()  << " (Defensa Activada) \n";
 											  turno++;
 										  } break;
 								   case 4:{
-
+											  luchadores.get(num_luchador, size) -> Habilidad();
+											  cout << "Habilidad Activada!" << endl;
+											  archivo << "- " << luchadores.get(num_luchador, size) -> getNombre()  << " (Habilidad Activada) \n";
+											  turno++;
 										  } break;
 							   }
 						   } else {
@@ -269,13 +278,14 @@ int main() {
 													  luchadores.get(num_luchador, size) -> setSalud(luchadores.get(num_luchador, size) -> getSalud() - luchadores.get(num_luchador2, size) -> AtaqueMagico());
 												  }
 												  cout << "Ataque Magico Realizado!" << endl;
+												  archivo << "- " << luchadores.get(num_luchador2, size) -> getNombre()  << " (Ataque Magico) " << luchadores.get(num_luchador, size) -> getNombre() << "\n";
 												  turno = 1;
 											  } else {
 												  cout << "No tienes Ataque Magico!" << endl;
 											  }
 										  } break;
 								   case 2:{
-											   if (luchadores.get(num_luchador2, size) -> AtaqueFisico() > 0) {
+											  if (luchadores.get(num_luchador2, size) -> AtaqueFisico() > 0) {
 												  if (luchadores.get(num_luchador, size) -> getDefensaF()) {
 													  double nuevo_ataque = luchadores.get(num_luchador2, size) -> AtaqueFisico() - (luchadores.get(num_luchador, size) -> getDefensaFisica() * luchadores.get(num_luchador2, size) -> AtaqueFisico());
 													  luchadores.get(num_luchador, size) -> setSalud(luchadores.get(num_luchador, size) -> getSalud() - nuevo_ataque);
@@ -283,6 +293,7 @@ int main() {
 													  luchadores.get(num_luchador, size) -> setSalud(luchadores.get(num_luchador, size) -> getSalud() - luchadores.get(num_luchador2, size) -> AtaqueFisico());
 												  }
 												  cout << "Ataque Fisico Realizado!" << endl;
+												  archivo << "- " << luchadores.get(num_luchador2, size) -> getNombre()  << " (Ataque Fisco) " << luchadores.get(num_luchador, size) -> getNombre() << "\n";
 												  turno = 1;
 											  } else {
 												  cout << "No tienes Fisico Magico!" << endl;
@@ -291,10 +302,14 @@ int main() {
 								   case 3:{
 											  luchadores.get(num_luchador2, size) -> Defensa();
 											  cout << "Defensa Activada!" << endl;
+											  archivo << "- " << luchadores.get(num_luchador2, size) -> getNombre()  << " (Defensa Activada) \n";
 											  turno = 1;
 										  } break;
 								   case 4:{
-
+											  luchadores.get(num_luchador2, size) -> Habilidad();
+											  cout << "Habilidad Activada!" << endl;
+											  archivo << "- " << luchadores.get(num_luchador2, size) -> getNombre()  << " (Habilidad Activada) \n";
+											  turno = 1;
 										  } break;
 							   }
 						   }
@@ -303,23 +318,36 @@ int main() {
 							   cout << "Ha Ganado el ";
 							   if (typeid(*luchadores.get(num_luchador, size)) == typeid(Aprendiz)) {
 								   cout << "Luchador (Aprendiz) " << luchadores.get(num_luchador, size) -> getNombre() << endl;
+								   luchadores.get(num_luchador, size) -> HabilidadPasiva();
+								   archivo << "- " << luchadores.get(num_luchador, size) -> getNombre() << " (Habilidad Pasiva) \n";
+								   cout << "Has Ganado " << luchadores.get(num_luchador, size) -> getExperienciaEntregada() * 2 << " de Experiencia!" << endl;
 							   } else {
 								   if (typeid(*luchadores.get(num_luchador, size)) == typeid(Guerrero)) {
 									   cout << "Luchador (Guerrero) " << luchadores.get(num_luchador, size) -> getNombre() << endl;
+									   luchadores.get(num_luchador, size) -> setExperiencia(luchadores.get(num_luchador, size) -> getExperiencia() + luchadores.get(num_luchador, size) -> getExperienciaEntregada());
+									   cout << "Has Ganado " << luchadores.get(num_luchador, size) -> getExperienciaEntregada() << " de Experiencia!" << endl;
 								   } else {
 									   if (typeid(*luchadores.get(num_luchador, size)) == typeid(Mago)) {
 										   cout << "Luchador (Mago) " << luchadores.get(num_luchador, size) -> getNombre() << endl;
+										   luchadores.get(num_luchador, size) -> setExperiencia(luchadores.get(num_luchador, size) -> getExperiencia() + luchadores.get(num_luchador, size) -> getExperienciaEntregada());
+										   cout << "Has Ganado " << luchadores.get(num_luchador, size) -> getExperienciaEntregada() << " de Experiencia!" << endl;
 									   } else {
 										   if (typeid(*luchadores.get(num_luchador, size)) == typeid(Alquimista)) {
 											   cout << "Luchador (Alquimista) " << luchadores.get(num_luchador, size) -> getNombre() << endl;
+											   luchadores.get(num_luchador, size) -> setExperiencia(luchadores.get(num_luchador, size) -> getExperiencia() + luchadores.get(num_luchador, size) -> getExperienciaEntregada());
+											   cout << "Has Ganado " << luchadores.get(num_luchador, size) -> getExperienciaEntregada() << " de Experiencia!" << endl;
 										   } else {
 											   if (typeid(*luchadores.get(num_luchador, size)) == typeid(DragonBorn)) {
 												   cout << "Luchador (DragonBorn) " << luchadores.get(num_luchador, size) -> getNombre() << endl;
+												   luchadores.get(num_luchador, size) -> setExperiencia(luchadores.get(num_luchador, size) -> getExperiencia() + luchadores.get(num_luchador, size) -> getExperienciaEntregada());
+												   cout << "Has Ganado " << luchadores.get(num_luchador, size) -> getExperienciaEntregada() << " de Experiencia!" << endl;
 											   }
 										   }
 									   }
 								   }
 							   }
+							   archivo << "Ganador: " << luchadores.get(num_luchador, size) -> getNombre() << "\n";
+							   archivo << "\n";
 							   ganador = true;
 						   } else {
 							   if (luchadores.get(num_luchador, size) -> getSalud() <= 0) {
@@ -327,31 +355,46 @@ int main() {
 								   cout << "Ha Ganado el ";
 								   if (typeid(*luchadores.get(num_luchador2, size)) == typeid(Aprendiz)) {
 									   cout << "Luchador (Aprendiz) " << luchadores.get(num_luchador2, size) -> getNombre() << endl;
+									   luchadores.get(num_luchador2, size) -> HabilidadPasiva();
+									   archivo << "- " << luchadores.get(num_luchador2, size) -> getNombre() << " (Habilidad Pasiva) \n";
+									   cout << "Has Ganado " << luchadores.get(num_luchador2, size) -> getExperienciaEntregada() * 2 << " de Experiencia!" << endl;
 								   } else {
 									   if (typeid(*luchadores.get(num_luchador2, size)) == typeid(Guerrero)) {
 										   cout << "Luchador (Guerrero) " << luchadores.get(num_luchador2, size) -> getNombre() << endl;
+										   luchadores.get(num_luchador2, size) -> setExperiencia(luchadores.get(num_luchador2, size) -> getExperiencia() + luchadores.get(num_luchador2, size) -> getExperienciaEntregada());
+										   cout << "Has Ganado " << luchadores.get(num_luchador2, size) -> getExperienciaEntregada() << " de Experiencia!" << endl;
+
 									   } else {
 										   if (typeid(*luchadores.get(num_luchador2, size)) == typeid(Mago)) {
 											   cout << "Luchador (Mago) " << luchadores.get(num_luchador2, size) -> getNombre() << endl;
+											   luchadores.get(num_luchador2, size) -> setExperiencia(luchadores.get(num_luchador2, size) -> getExperiencia() + luchadores.get(num_luchador2, size) -> getExperienciaEntregada());
+											   cout << "Has Ganado " << luchadores.get(num_luchador2, size) -> getExperienciaEntregada() << " de Experiencia!" << endl;
+
 										   } else {
 											   if (typeid(*luchadores.get(num_luchador2, size)) == typeid(Alquimista)) {
 												   cout << "Luchador (Alquimista) " << luchadores.get(num_luchador2, size) -> getNombre() << endl;
+												   luchadores.get(num_luchador2, size) -> setExperiencia(luchadores.get(num_luchador2, size) -> getExperiencia() + luchadores.get(num_luchador2, size) -> getExperienciaEntregada());
+												   cout << "Has Ganado " << luchadores.get(num_luchador2, size) -> getExperienciaEntregada() << " de Experiencia!" << endl;
+
 											   } else {
 												   if (typeid(*luchadores.get(num_luchador2, size)) == typeid(DragonBorn)) {
 													   cout << "Luchador (DragonBorn) " << luchadores.get(num_luchador2, size) -> getNombre() << endl;
+													   luchadores.get(num_luchador2, size) -> setExperiencia(luchadores.get(num_luchador2, size) -> getExperiencia() + luchadores.get(num_luchador2, size) -> getExperienciaEntregada());
+													   cout << "Has Ganado " << luchadores.get(num_luchador2, size) -> getExperienciaEntregada() << " de Experiencia!" << endl;
+
 												   }
 											   }
 										   }
 									   }
 								   }
+								   archivo << "Ganador: " << luchadores.get(num_luchador2, size) -> getNombre() << "\n";
+								   archivo << "\n";
 								   ganador = true;
 							   } 
 						   }
 					   } while (!ganador);
-				   luchadores.get(num_luchador2, size) -> setExperiencia(luchadores.get(num_luchador2, size) -> getExperiencia() + luchadores.get(num_luchador2, size) -> getExperienciaEntregada());
-				  cout << "Has Ganado " << luchadores.get(num_luchador2, size) -> getExperienciaEntregada() << " de Experiencia!" << endl;
-				   if (typeid(*luchadores.get(num_luchador, size)) == typeid(Aprendiz)) {
-					   luchadores.get(num_luchador, size) -> setSalud(60);
+					   if (typeid(*luchadores.get(num_luchador, size)) == typeid(Aprendiz)) {
+						   luchadores.get(num_luchador, size) -> setSalud(60);
 					   } else {
 						   if (typeid(*luchadores.get(num_luchador, size)) == typeid(Guerrero)) {
 							   luchadores.get(num_luchador, size) -> setSalud(120);
@@ -388,6 +431,7 @@ int main() {
 							   }
 						   }
 					   }
+					   archivo.close();
 				   }break;
 			case 5:{
 					   cout << "Hasta Pronto Ana!" << endl;

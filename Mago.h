@@ -13,6 +13,7 @@ class Mago: public Luchador {
 		virtual void Defensa();
 		virtual int AtaqueMagico();
 		virtual int AtaqueFisico();
+		virtual void Habilidad();
 };
 
 #endif

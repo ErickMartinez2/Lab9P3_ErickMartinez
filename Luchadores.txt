@@ -1,0 +1,23 @@
+-> Simulacion Skyrim 
+- Erick (Ataque Fisco) Ana
+- Ana (Ataque Fisco) Erick
+- Erick (Ataque Fisco) Ana
+- Ana (Ataque Fisco) Erick
+- Erick (Defensa Activada) 
+- Ana (Ataque Fisco) Erick
+- Erick (Ataque Fisco) Ana
+- Ana (Defensa Activada) 
+- Erick (Ataque Fisco) Ana
+- Ana (Ataque Fisco) Erick
+- Erick (Habilidad Activada) 
+- Ana (Ataque Fisco) Erick
+- Erick (Ataque Fisco) Ana
+- Ana (Ataque Fisco) Erick
+- Erick (Ataque Fisco) Ana
+- Ana (Habilidad Activada) 
+- Erick (Ataque Fisco) Ana
+- Ana (Ataque Fisco) Erick
+- Erick (Ataque Fisco) Ana
+- Erick (Habilidad Pasiva) 
+Ganador: Erick
+
