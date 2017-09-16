@@ -12,4 +12,25 @@ Aprendiz::Aprendiz(string pnombre) {
 	defensa_fisica = 0.10;
 	experiencia_necesaria = 400;
 	experiencia_entregada = 25;
+	defensam_activa = false;
+	defensaf_activa = false;
 }
+
+void Aprendiz::Defensa() {
+	salud = (salud * 0.45) + salud;
+	defensam_activa = false;
+	defensaf_activa = true;
+}
+
+int Aprendiz::AtaqueMagico() {
+	return 0;
+}
+
+int Aprendiz::AtaqueFisico() {
+	return 10;
+}
+
+void Aprendiz::HabilidadPasiva() {
+	salud = experiencia_entregada * 2;
+}
+

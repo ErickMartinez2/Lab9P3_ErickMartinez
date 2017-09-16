@@ -10,6 +10,9 @@ class Guerrero: public Luchador {
 	public:
 		Guerrero();
 		Guerrero(string);
+		virtual void Defensa();
+		virtual int AtaqueMagico();
+		virtual int AtaqueFisico();
 };
 
 #endif

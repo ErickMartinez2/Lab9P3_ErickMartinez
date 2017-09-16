@@ -10,6 +10,9 @@ class Mago: public Luchador {
 	public:
 		Mago();
 		Mago(string);
+		virtual void Defensa();
+		virtual int AtaqueMagico();
+		virtual int AtaqueFisico();
 };
 
 #endif

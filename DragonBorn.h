@@ -10,6 +10,9 @@ class DragonBorn: public Luchador {
 	public:
 		DragonBorn();
 		DragonBorn(string);
+		virtual void Defensa();
+		virtual int AtaqueMagico();
+		virtual int AtaqueFisico();
 };
 
 #endif

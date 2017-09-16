@@ -18,6 +18,7 @@ class LinkedList {
 		int getSize();
 		Luchador* get(int, int);
 		void Delete();
+		void remove(int, int);
 		//string Ver();
 };
 

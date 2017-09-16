@@ -12,4 +12,21 @@ DragonBorn::DragonBorn(string pnombre) {
 	defensa_fisica = 0.20;
 	experiencia_necesaria = 400;
 	experiencia_entregada = 150;
+	defensam_activa = false;
+	defensaf_activa = false;
 }
+
+void DragonBorn::Defensa() {
+	salud = (salud * 0.45) + salud;
+	defensam_activa = true;
+	defensaf_activa = true;
+}
+
+int DragonBorn::AtaqueMagico() {
+	return 25;
+}
+
+int DragonBorn::AtaqueFisico() {
+	return 23;
+}
+

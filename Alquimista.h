@@ -10,6 +10,9 @@ class Alquimista: public Luchador {
 	public:
 		Alquimista();
 		Alquimista(string);
+		virtual void Defensa();
+		virtual int AtaqueMagico();
+		virtual int AtaqueFisico();
 };
 
 #endif

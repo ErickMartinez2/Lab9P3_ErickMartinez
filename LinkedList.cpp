@@ -40,7 +40,7 @@ Luchador* LinkedList::get(int posicion, int size) {
 		luchadores2.push_back(luchador_posicion);
 		raiz = raiz -> nodo;
 	}
-	for (int i = luchadores2.size(); i >= 0; i--) {
+	for (int i = luchadores2.size() - 1; i >= 0; i--) {
 		Node* n = new Node();
 		n -> luchador = luchadores2[i];
 		n -> nodo = raiz;
@@ -52,10 +52,33 @@ Luchador* LinkedList::get(int posicion, int size) {
 void LinkedList::Delete() {
 	do {
 		Node* n = raiz;
-		Luchador* luchador = n -> luchador;
-		delete luchador;
+		Luchador* luchador2 = n -> luchador;
 		raiz = raiz -> nodo;
+		delete luchador2;
+		delete n;
 	} while (raiz != NULL);
+}
+
+void LinkedList::remove(int posicion, int size) {
+	int nueva_posicion = size - posicion;
+	Luchador* luchador_posicion;
+	vector<Luchador*> luchadores2;
+	for (int i = 0; i <= nueva_posicion; i++) {
+		Node* n = raiz;
+		luchador_posicion = n -> luchador;
+		luchadores2.push_back(luchador_posicion);
+		raiz = raiz -> nodo;
+	}
+	for (int i = luchadores2.size() - 1; i >= 0; i--) {
+		Node* n = new Node();
+		if (i != luchadores2.size() - 1) {
+			n -> luchador = luchadores2[i];
+			n -> nodo = raiz;
+			raiz = n;
+		} else {
+			delete n;
+		}
+	}
 }
 
 /*string LinkedList::Ver() {

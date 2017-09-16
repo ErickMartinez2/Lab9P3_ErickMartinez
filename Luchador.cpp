@@ -42,35 +42,19 @@ void Luchador::setSalud(int psalud) {
 	salud = psalud;
 }
 
-/*int Luchador::getAtaqueMagico() {
-	return ataque_magico;
-}
-
-void Luchador::setAtaqueMagico(int pataque_magico) {
-	ataque_magico = pataque_magico;
-}
-
-int Luchador::getAtaqueFisico() {
-	return ataque_fisico;
-}
-
-void Luchador::setAtaqueFisico(int pataque_fisico) {
-	ataque_fisico = pataque_fisico;
-}*/
-
-int Luchador::getDefensaMagica() {
+double Luchador::getDefensaMagica() {
 	return defensa_magica;
 }
 
-void Luchador::setDefensaMagica(int pdefensa_magica) {
+void Luchador::setDefensaMagica(double pdefensa_magica) {
 	defensa_magica = pdefensa_magica;
 }
 
-int Luchador::getDefensaFisica() {
+double Luchador::getDefensaFisica() {
 	return defensa_fisica;
 }
 
-void Luchador::setDefensaFisica(int pdefensa_fisica) {
+void Luchador::setDefensaFisica(double pdefensa_fisica) {
 	defensa_fisica = pdefensa_fisica;
 }
 
@@ -98,3 +82,38 @@ void Luchador::setExperienciaEntregada(int pexperiencia_entregada) {
 	experiencia_entregada = pexperiencia_entregada;
 }
 
+bool Luchador::getDefensaM() {
+	return defensam_activa;
+}
+
+void Luchador::setDefensaM(bool pdefensam_activa) {
+	defensam_activa = pdefensam_activa;
+}
+
+bool Luchador::getDefensaF() {
+	return defensaf_activa;
+}
+
+void Luchador::setDefensaF(bool pdefensaf_activa) {
+	defensaf_activa = pdefensaf_activa;
+}
+
+int Luchador::AtaqueMagico() {
+	return 0;
+}
+
+int Luchador::AtaqueFisico() {
+	return 0;
+}
+
+void Luchador::Habilidad() {
+	
+}
+
+void Luchador::HabilidadPasiva() {
+	
+}
+
+void Luchador::Defensa() {
+
+}

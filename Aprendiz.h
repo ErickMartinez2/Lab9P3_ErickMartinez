@@ -10,6 +10,10 @@ class Aprendiz: public Luchador {
 	public:
 		Aprendiz();
 		Aprendiz(string);
+		virtual void Defensa();
+		virtual int AtaqueMagico();
+		virtual int AtaqueFisico();
+		virtual void HabilidadPasiva();
 };
 
 #endif
